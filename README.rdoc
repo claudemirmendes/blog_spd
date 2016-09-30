@@ -1,6 +1,6 @@
 == README
 
-[ ![Codeship Status for claudemirmendes/blog_spd](https://app.codeship.com/projects/81816a50-6982-0134-49f8-0611f7075927/status?branch=master (3KB))](https://app.codeship.com/projects/176737)
+{<img src="https://app.codeship.com/projects/81816a50-6982-0134-49f8-0611f7075927/status?branch=master" alt="Status?branch=master" />}[https://app.codeship.com/projects/176737]
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
