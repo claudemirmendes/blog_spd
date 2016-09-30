@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 
 ruby '2.2.4'
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.7'
 # Use SCSS for stylesheets
@@ -42,7 +41,8 @@ group :development, :test do
 end
 
 group :test do
-  gem 'json-schema-rspec'
+  gem "json_matchers"
+  gem 'shoulda-matchers', github: 'thoughtbot/shoulda-matchers'
 end
 
 group :development do
