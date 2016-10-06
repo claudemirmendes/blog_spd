@@ -2,7 +2,11 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
-      resources :posts, only: [:index, :show, :create, :update, :destroy]
+      match "posts/index" => "posts#index", via: [:get, :options]
+      match "posts/show" => "posts#show", via: [:get, :options]
+      match "posts/create" => "posts#create", via: [:post, :options]
+      match "posts/update" => "posts#update", via: [:put, :options]
+      match "posts/delete" => "posts#delete", via: [:delete, :options]
     end
   end
 

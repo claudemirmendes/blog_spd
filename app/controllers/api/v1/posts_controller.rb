@@ -8,6 +8,7 @@ class Api::V1::PostsController < Api::BaseController
   end
 
   def create
+    # byebug
     @post = Post.new(post_params)
     if @post.save
       respond_to do |format|
