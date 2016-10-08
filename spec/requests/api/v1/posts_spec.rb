@@ -20,7 +20,7 @@ describe Api::V1::PostsController, :type => :request do
     end
 
     it 'should find a single post' do
-      get "/api/v1/posts/find/#{@post.id}"
+      get "/api/v1/posts/find/#{@post.id}", format: :json
       expect(json['title']).to eq(@post.title)
     end
   end
