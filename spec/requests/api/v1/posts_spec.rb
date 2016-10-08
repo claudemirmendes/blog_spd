@@ -9,7 +9,7 @@ describe Api::V1::PostsController, :type => :request do
     end
 
     it 'should list posts' do
-      get '/api/v1/posts', format: :json
+      get '/api/v1/posts/list', format: :json
       expect(json.length).to eql(5)
     end
   end
@@ -20,14 +20,14 @@ describe Api::V1::PostsController, :type => :request do
     end
 
     it 'should find a single post' do
-      get '/api/v1/posts/', id: @post.id, format: :json
-      expect(json.first['title']).to eq(@post.title)
+      get "/api/v1/posts/find/#{@post.id}"
+      expect(json['title']).to eq(@post.title)
     end
   end
 
   describe "POST 'create'" do
     it 'should create a post' do
-      post '/api/v1/posts', post: {title: "Title here"}
+      post '/api/v1/posts/create', post: {title: "Title here"}
       expect(json['title']).to eq("Title here")
     end
   end
@@ -38,7 +38,7 @@ describe Api::V1::PostsController, :type => :request do
     end
 
     it "should update post" do
-      put "/api/v1/posts/#{@post.id}", post: {title: "ROR"}
+      put "/api/v1/posts/update/#{@post.id}", post: {title: "ROR"}
       expect(json['title']).to eq("ROR")
     end
   end
@@ -49,7 +49,7 @@ describe Api::V1::PostsController, :type => :request do
     end
 
     it "should delete post" do
-      delete "/api/v1/posts/#{@post.id}" 
+      delete "/api/v1/posts/delete/#{@post.id}" 
       expect(Post.where(id: @post.id)).to be_empty
     end
   end
