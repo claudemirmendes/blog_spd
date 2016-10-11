@@ -13,10 +13,22 @@ require "sprockets/railtie"
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
+
 Bundler.require(*Rails.groups)
 
 module BlogSpd
+
   class Application < Rails::Application
+
+
+    ENV['ENV'] ||= 'development'
+
+    db_conf = YAML::load(File.open(File.join(APP_PATH,'config','database.yml')))
+
+    DB1_CONF = db_conf["db1"][ENV['ENV']]
+    DB2_CONF = db_conf["db2"][ENV['ENV']]
+  
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
